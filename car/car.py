@@ -1,5 +1,3 @@
-from abc import ABC, abstractmethod
-
 from battery.battery import Battery
 from engine.engine import Engine
 from utils.serviceable import Serviceable
@@ -13,6 +11,5 @@ class Car(Serviceable):
         self.__engine = engine
         self.__battery = battery
 
-    @abstractmethod
     def needs_service(self) -> bool:
-        pass
+        self.__engine.needs_service() and self.__battery.needs_service()
